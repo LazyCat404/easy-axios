@@ -1,11 +1,11 @@
-import easyAxios from './easyAxios';
+import ezAxios from './ezAxios';
 
 /**
  * @description get 方法，对应 get 请求
  * @param { String } url 接口地址
  * @param { Record<string, string> | Array } params [请求参数]：只能作为第二个参数
  * @param { String } responseType [返回值类型]：（多用于下载）blob
- * @param { easyAxiosOptions } customOptions [自定义设置]：不可作为前两个参数，会覆盖全局配置
+ * @param { ezAxiosOptions } customOptions [自定义设置]：不可作为前两个参数，会覆盖全局配置
  * @returns get 请求的 Promise 处理
  */
 export default function get(url: string, ...theArgs: any[]): Promise<any> {
@@ -47,7 +47,7 @@ export default function get(url: string, ...theArgs: any[]): Promise<any> {
     });
   }
   return new Promise((resolve, reject) => {
-    easyAxios(customOptions)
+    ezAxios(customOptions)
       .get(url, { params, responseType })
       .then(res => {
         resolve(res);

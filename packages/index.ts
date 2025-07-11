@@ -1,4 +1,4 @@
-import easyAxios from './easyAxiosConfig';
+import ezAxios from './ezAxiosConfig';
 import get from './get';
 import post from './post';
 import put from './put';
@@ -7,6 +7,6 @@ import Loading from './Loading';
 
 export { get, post, put, del, Loading };
 
-export type { easyAxiosOptions } from './easyAxiosConfig';
+export type { ezAxiosOptions } from './ezAxiosConfig';
 
-export default easyAxios;
+export default ezAxios;

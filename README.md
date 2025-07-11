@@ -1,11 +1,11 @@
-# easy-axios
+# ez-axios
 
 > 基于axios的二次封装
 
 ## 快速使用
 
 ```js
-import { get, post, put, del } from 'easy-axios';
+import { get, post, put, del } from 'ez-axios';
 
 // 直接使用
 get('/url').then(res => {
@@ -28,9 +28,9 @@ api.login({name: 'test'}).then(res => {
 
 ```js
 // main.js
-import easyAxios from 'easy-axios';
+import ezAxios from 'ez-axios';
 
-easyAxios({
+ezAxios({
   baseURL: '', // 基础地址
   timeout: 30000, // 请求超时时间
   briefly: true, // 简要数据结构
@@ -44,7 +44,7 @@ easyAxios({
 
 ## 请求方法参数说明
 
-> `easy-axios` 在封装了 `get`、`post`、`put`、`del` 四种常用的请求方法，可以根据需求选择使用。如果你苦恼于看文档，可以尝试在引用时，配合注释提示，快速了解每一个参数的含义。
+> `ez-axios` 在封装了 `get`、`post`、`put`、`del` 四种常用的请求方法，可以根据需求选择使用。如果你苦恼于看文档，可以尝试在引用时，配合注释提示，快速了解每一个参数的含义。
 
 - 前两个参数只能是**请求地址**，**请求参数**（参数值仅支持：`Object`、`Array`、`File`）。
 

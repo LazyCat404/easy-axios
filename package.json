@@ -1,13 +1,13 @@
 {
-  "name": "easy-axios",
+  "name": "ez-axios",
   "version": "1.0.0",
   "description": "基于axios的在封装",
   "keywords": [
     "axios",
     "二次封装"
   ],
-  "main": "dist/easy-axios.umd.js",
-  "module": "dist/easy-axios.mjs",
+  "main": "dist/ez-axios.umd.js",
+  "module": "dist/ez-axios.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite --host",
@@ -32,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LazyCat404/easy-axios.git"
+    "url": "git+https://github.com/LazyCat404/ez-axios.git"
   },
   "author": "LazyCat404",
   "license": "MIT",
@@ -42,7 +42,7 @@
     "package.json"
   ],
   "bugs": {
-    "url": "https://github.com/LazyCat404/easy-axios/issues"
+    "url": "https://github.com/LazyCat404/ez-axios/issues"
   },
-  "homepage": "https://github.com/LazyCat404/easy-axios#readme"
+  "homepage": "https://github.com/LazyCat404/ez-axios#readme"
 }

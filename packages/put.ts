@@ -1,4 +1,4 @@
-import easyAxios from './easyAxios';
+import ezAxios from './ezAxios';
 import QS from 'qs';
 
 /**
@@ -7,7 +7,7 @@ import QS from 'qs';
  * @param { Record<string, string> | Array | File } params [请求参数]：只能作为第二个参数
  * @param { String } requestType [请求参数类型]：json（默认）、query、file、data
  * @param { String } responseType [返回值类型]：（多用于下载）blob，请参数类型为query时失效
- * @param { easyAxiosOptions } customOptions [自定义设置]：不可作为前两个参数，会覆盖全局配置
+ * @param { ezAxiosOptions } customOptions [自定义设置]：不可作为前两个参数，会覆盖全局配置
  * @returns put 请求的 Promise 处理
  */
 export default function put(url: string, ...theArgs: any[]): Promise<any> {
@@ -73,7 +73,7 @@ export default function put(url: string, ...theArgs: any[]): Promise<any> {
   }
   return new Promise((resolve, reject) => {
     if (requestType === 'query') {
-      easyAxios(customOptions)
+      ezAxios(customOptions)
         .put(url, null, { params })
         .then(res => {
           resolve(res);
@@ -108,7 +108,7 @@ export default function put(url: string, ...theArgs: any[]): Promise<any> {
           }
         }
       }
-      easyAxios(customOptions)
+      ezAxios(customOptions)
         .put(url, formData, { responseType })
         .then(res => {
           resolve(res);
@@ -117,7 +117,7 @@ export default function put(url: string, ...theArgs: any[]): Promise<any> {
           reject(err);
         });
     } else if (requestType === 'data' || requestType === 'form-data' || requestType === 'formdata') {
-      easyAxios(customOptions)
+      ezAxios(customOptions)
         .put(url, QS.stringify(params), { responseType })
         .then(res => {
           resolve(res);
@@ -126,7 +126,7 @@ export default function put(url: string, ...theArgs: any[]): Promise<any> {
           reject(err);
         });
     } else {
-      easyAxios(customOptions)
+      ezAxios(customOptions)
         .put(url, params, { responseType })
         .then(res => {
           resolve(res);

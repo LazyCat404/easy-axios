@@ -1,11 +1,11 @@
-import easyAxios from './easyAxios';
+import ezAxios from './ezAxios';
 
 /**
  * @description del 方法，对应 delete 请求
  * @param { String } url 接口地址
  * @param { Record<string, string> | Array } params [请求参数]：只能作为第二个参数
  * @param { String } requestType [请求参数类型]：json（默认）、query
- * @param { easyAxiosOptions } customOptions [自定义设置]：不可作为前两个参数，会覆盖全局配置
+ * @param { ezAxiosOptions } customOptions [自定义设置]：不可作为前两个参数，会覆盖全局配置
  * @returns delete 请求的 Promise 处理
  */
 export default function del(url: string, ...theArgs: any[]): Promise<any> {
@@ -48,7 +48,7 @@ export default function del(url: string, ...theArgs: any[]): Promise<any> {
   }
   return new Promise((resolve, reject) => {
     if (requestType === 'query') {
-      easyAxios(customOptions)
+      ezAxios(customOptions)
         .delete(url, { params })
         .then(res => {
           resolve(res);
@@ -57,7 +57,7 @@ export default function del(url: string, ...theArgs: any[]): Promise<any> {
           reject(err);
         });
     } else {
-      easyAxios(customOptions)
+      ezAxios(customOptions)
         .delete(url, { data: params })
         .then(res => {
           resolve(res);

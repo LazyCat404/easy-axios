@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosInstance } from 'axios';
-import { globalOptions, easyAxiosOptions } from './easyAxiosConfig';
+import { globalOptions, ezAxiosOptions } from './ezAxiosConfig';
 import Loading from './Loading';
 
 // 声明一个 Map 用于存储每个请求的标识 和 取消函数
@@ -7,19 +7,19 @@ const pending = new Map();
 
 /**
  * @description 自定义 axios 请求对象
- * @param { easyAxiosOptions } customOptions 自定义配置
+ * @param { ezAxiosOptions } customOptions 自定义配置
  * @returns axios 实例
  */
-export default function easyAxios(customOptions?: easyAxiosOptions): AxiosInstance {
+export default function ezAxios(customOptions?: ezAxiosOptions): AxiosInstance {
   // 将全局选项和自定义选项合并
-  const targetOptions: easyAxiosOptions = Object.assign(globalOptions, customOptions);
+  const targetOptions: ezAxiosOptions = Object.assign(globalOptions, customOptions);
   // 创建一个简易的axios实例
-  const easyAxios = axios.create({
+  const ezAxios = axios.create({
     timeout: targetOptions.timeout,
     baseURL: targetOptions.baseURL
   });
   // http request 请求拦截
-  easyAxios.interceptors.request.use(
+  ezAxios.interceptors.request.use(
     config => {
       // 如果有loading选项，则显示loading
       if (targetOptions.loading) {
@@ -38,7 +38,7 @@ export default function easyAxios(customOptions?: easyAxiosOptions): AxiosInstan
     }
   );
   // http response 响应拦截
-  easyAxios.interceptors.response.use(
+  ezAxios.interceptors.response.use(
     (response: AxiosResponse) => {
       Loading.close();
       removePending(response.config); // 在请求结束后，移除本次请求
@@ -56,7 +56,7 @@ export default function easyAxios(customOptions?: easyAxiosOptions): AxiosInstan
       }
     }
   );
-  return easyAxios;
+  return ezAxios;
 }
 
 /**

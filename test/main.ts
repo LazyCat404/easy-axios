@@ -1,6 +1,6 @@
-import easyAxios, { post } from '../packages/index';
+import ezAxios, { post } from '../packages/index';
 
-easyAxios({
+ezAxios({
   baseURL: 'http://localhost:3000'
 });
 

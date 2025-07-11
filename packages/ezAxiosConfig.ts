@@ -1,4 +1,4 @@
-export interface easyAxiosOptions {
+export interface ezAxiosOptions {
   timeout?: number; // 请求超时时间
   briefly?: boolean; // 简要数据结构
   baseURL?: string; // 基础地址
@@ -9,7 +9,7 @@ export interface easyAxiosOptions {
 }
 
 // 默认配置
-const defaultOptions: easyAxiosOptions = {
+const defaultOptions: ezAxiosOptions = {
   baseURL: '',
   timeout: 30000,
   briefly: true,
@@ -19,13 +19,13 @@ const defaultOptions: easyAxiosOptions = {
 };
 
 // 自定义配置
-export let globalOptions: easyAxiosOptions = defaultOptions;
+export let globalOptions: ezAxiosOptions = defaultOptions;
 
 /**
- * easy-axios 全局配置
+ * ez-axios 全局配置
  * @param options
  */
-export default (options: easyAxiosOptions): void => {
+export default (options: ezAxiosOptions): void => {
   globalOptions = Object.assign(defaultOptions, options);
 };
 
